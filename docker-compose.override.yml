@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  gateway:
+    ports:
+      - "7000:80"
+      - "7070:8080"
+
+  client.app:
+    expose:
+      - "8080"
+
+  mid.auth:
+    environment:
+      - PORT=3000
+    expose:
+      - "3000"
+
+  srv.accounts:
+    environment:
+      - PORT=4000
+    expose:
+      - "4000"
+
+  srv.users:
+    environment:
+      - PORT=5000
+    expose:
+      - "5000"

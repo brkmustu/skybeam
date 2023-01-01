@@ -1,0 +1,30 @@
+http:
+  routers:
+    client.app:
+      rule: "PathPrefix(`/`)"
+      service: client.app
+      middlewares:
+        - "mid.auth"
+    srv.accounts:
+      rule: "PathPrefix(`/api/accounts`)"
+      service: srv.accounts
+    srv.users:
+      rule: "PathPrefix(`/api/users`)"
+      service: srv.users
+  middlewares:
+    mid.auth:
+      forwardAuth:
+        address: "http://mid.auth:3000"
+  services:
+    client.app:
+      loadBalancer:
+        servers:
+          - url: http://client.app
+    srv.accounts:
+      loadBalancer:
+        servers:
+          - url: http://srv.accounts:4000
+    srv.users:
+      loadBalancer:
+        servers:
+          - url: http://srv.users:5000

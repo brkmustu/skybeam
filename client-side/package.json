@@ -1,0 +1,30 @@
+{
+  "name": "client-side",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primevue": "3",
+    "vue": "^3.2.45",
+    "vue-router": "4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint": "^8.30.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "prettier": "^2.8.1",
+    "sass": "^1.57.1",
+    "vite": "^4.0.0"
+  }
+}

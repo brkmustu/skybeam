@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  gateway:
+    build:
+      context: traefik
+      dockerfile: Dockerfile
+
+  client.app:
+    build:
+      context: client-side
+      dockerfile: Dockerfile
+    depends_on:
+        - gateway
+
+  mid.auth:
+    build:
+      context: server-side/middlewares/auth
+      dockerfile: Dockerfile
+
+  srv.accounts:
+    build:
+      context: server-side/modules/accounts
+      dockerfile: Dockerfile
+
+  srv.users:
+    build:
+      context: server-side/modules/users
+      dockerfile: Dockerfile
